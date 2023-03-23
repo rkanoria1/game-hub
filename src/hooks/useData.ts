@@ -24,7 +24,6 @@ const useData = <T>(endpoint: string, requestConfig?: AxiosRequestConfig, deps?:
                 if(err instanceof CanceledError) return;
                     setError(err.message)
                     setLoading(false);});
-
         return () => controller.abort();
     }, deps ? [...deps]: []);
     return {data, error, isLoading};
